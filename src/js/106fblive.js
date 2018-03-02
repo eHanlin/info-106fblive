@@ -1,4 +1,5 @@
 $(function () {
+  let rootPath = document.getElementById('rootPath').getAttribute('data-value')
   let nowSeconds = new Date().getTime() / 1000
   let date0309 = 1520568000
   let date0316 = 1521172800
@@ -10,36 +11,39 @@ $(function () {
   let heightStyle = '345'
   let normal = () => {
     subjectTarget.append(
-      `<img class="ch" title="敬請期待" style="opacity:0.6;" src="./img/柳吟國文敬請期待.png">
-        <img class="en" title="敬請期待" style="opacity:0.6;" src="./img/東方智英文敬請期待.png">
-        <img class="ma" title="敬請期待" style="opacity:0.6;" src="./img/楊明山數學敬請期待.png">
-        <img class="pc" title="敬請期待" style="opacity:0.6;" src="./img/紀揚理化敬請期待.png">
-        <img class="so" title="敬請期待" style="opacity:0.6;" src="./img/李天豪社會敬請期待.png">`
+      `<img class="ch" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/柳吟國文敬請期待.png">
+        <img class="en" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/東方智英文敬請期待.png">
+        <img class="ma" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/楊明山數學敬請期待.png">
+        <img class="pc" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/紀揚理化敬請期待.png">
+        <img class="so" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/李天豪社會敬請期待.png">`
     )
-    if (nowSeconds >= date0309) {
+    // nowSeconds >= date0309
+    if (true) {
       $('.container .teacher-condition .ch').remove()
       subjectTarget.append(
-        `<img class="ch" title="柳吟國文" src="./img/柳吟國文正常.png">`
+        `<img class="ch" title="柳吟國文" src="${rootPath}/img/柳吟國文正常.png">`
       )
     }
-    if (nowSeconds >= date0316) {
+    // nowSeconds >= date0316
+    if (true) {
       $('.container .teacher-condition .en').remove()
       $('.container .teacher-condition .ma').remove()
       subjectTarget.append(
-        `<img class="en" title="東方智英文" src="./img/東方智英文正常.png">`
+        `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
       )
       subjectTarget.append(
-        `<img class="ma" title="楊明山數學" src="./img/楊明山數學正常.png">`
+        `<img class="ma" title="楊明山數學" src="${rootPath}/img/楊明山數學正常.png">`
       )
     }
-    if (nowSeconds >= date0323) {
+    // nowSeconds >= date0323
+    if (true) {
       $('.container .teacher-condition .pc').remove()
       $('.container .teacher-condition .so').remove()
       subjectTarget.append(
-        `<img class="pc" title="紀揚理化" src="./img/紀揚理化正常.png">`
+        `<img class="pc" title="紀揚理化" src="${rootPath}/img/紀揚理化正常.png">`
       )
       subjectTarget.append(
-        `<img class="so" title="李天豪社會" src="./img/李天豪社會正常.png">`
+        `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
       )
     }
   }
@@ -77,6 +81,7 @@ $(function () {
   }
   normal()
   leftSideImgTarget.css('opacity', '0.4')
+  console.log(rootPath)
 
   $('.teacher-condition img').on('click', event => {
     let thisBtn = $(event.currentTarget)
@@ -94,7 +99,7 @@ $(function () {
 
     if (thisImgTitle === '敬請期待') {
       leftSideImgTarget.css('opacity', '0.4')
-      thisBtn.siblings('[data-clicked=true]').attr('src', `./img/${otherImgTitle}正常.png`)
+      thisBtn.siblings('[data-clicked=true]').attr('src', `${rootPath}/img/${otherImgTitle}正常.png`)
       return false
     } else if (thisImgTitle === '柳吟國文') {
       chA = 'https://www.youtube.com/embed/cFbgZS33w_A'
@@ -149,8 +154,8 @@ $(function () {
     }
 
     thisBtn.attr('data-clicked', true)
-    thisBtn.attr('src', `./img/${thisImgTitle}點選.png`)
-    thisBtn.siblings('[data-clicked=true]').attr('src', `./img/${otherImgTitle}正常.png`)
+    thisBtn.attr('src', `${rootPath}/img/${thisImgTitle}點選.png`)
+    thisBtn.siblings('[data-clicked=true]').attr('src', `${rootPath}/img/${otherImgTitle}正常.png`)
     thisBtn.siblings('[data-clicked=true]').removeAttr('data-clicked')
 
     return false
