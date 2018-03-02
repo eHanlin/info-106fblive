@@ -1,0 +1,10 @@
+{
+  "name": "info-106fblive",
+  "description": "eHanlin 決戰會考企劃",
+  "author": "Aso <aso@ehanlin.com.tw>",
+  "version": "0.0.1-SNAPSHOT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eHanlin/info-106fblive.git"
+  }
+}
