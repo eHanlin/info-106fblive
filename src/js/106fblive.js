@@ -1,5 +1,6 @@
 $(function () {
   let rootPath = document.getElementById('rootPath').getAttribute('data-value')
+  // let rootPath = '.'
   let nowSeconds = new Date().getTime() / 1000
   let date0309 = 1520568000
   let date0316 = 1521172800
@@ -81,7 +82,6 @@ $(function () {
   }
   normal()
   leftSideImgTarget.css('opacity', '0.4')
-  console.log(rootPath)
 
   $('.teacher-condition img').on('click', event => {
     let thisBtn = $(event.currentTarget)
