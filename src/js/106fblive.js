@@ -163,7 +163,7 @@ $(function () {
 
   let blockFunc = info => {
     $.blockUI({
-      message: `<img src='${rootPath}/img/開通步驟.png'>`,
+      message: `<img src='${rootPath}/img/開通步驟編修檔.png'>`,
       css: {
         top: ($(window).height() - 600) / 2 + 'px',
         left: ($(window).width() - 500) / 2 + 'px',
