@@ -48,7 +48,7 @@ $(function () {
       )
     }
 
-    // 暫時先使用的影片部分
+    // 暫時使用
     if (true) {
       $('.container .teacher-condition .en').remove()
       $('.container .teacher-condition .so').remove()
