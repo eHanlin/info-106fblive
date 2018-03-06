@@ -1,6 +1,6 @@
 $(function () {
-  // let rootPath = document.getElementById('rootPath').getAttribute('data-value')
-  let rootPath = '.'
+  let rootPath = document.getElementById('rootPath').getAttribute('data-value')
+  // let rootPath = '.'
   let nowSeconds = new Date().getTime() / 1000
   let date0309 = 1520568000
   let date0316 = 1521172800
