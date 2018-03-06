@@ -1,6 +1,6 @@
 $(function () {
-  let rootPath = document.getElementById('rootPath').getAttribute('data-value')
-  // let rootPath = '.'
+  // let rootPath = document.getElementById('rootPath').getAttribute('data-value')
+  let rootPath = '.'
   let nowSeconds = new Date().getTime() / 1000
   let date0309 = 1520568000
   let date0316 = 1521172800
@@ -19,14 +19,14 @@ $(function () {
         <img class="so" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/李天豪社會敬請期待.png">`
     )
     // nowSeconds >= date0309
-    if (true) {
+    if (false) {
       $('.container .teacher-condition .ch').remove()
       subjectTarget.append(
         `<img class="ch" title="柳吟國文" src="${rootPath}/img/柳吟國文正常.png">`
       )
     }
     // nowSeconds >= date0316
-    if (true) {
+    if (false) {
       $('.container .teacher-condition .en').remove()
       $('.container .teacher-condition .ma').remove()
       subjectTarget.append(
@@ -37,11 +37,23 @@ $(function () {
       )
     }
     // nowSeconds >= date0323
-    if (true) {
+    if (false) {
       $('.container .teacher-condition .pc').remove()
       $('.container .teacher-condition .so').remove()
       subjectTarget.append(
         `<img class="pc" title="紀揚理化" src="${rootPath}/img/紀揚理化正常.png">`
+      )
+      subjectTarget.append(
+        `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
+      )
+    }
+
+    // 暫時先使用的影片部分
+    if (true) {
+      $('.container .teacher-condition .en').remove()
+      $('.container .teacher-condition .so').remove()
+      subjectTarget.append(
+        `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
       )
       subjectTarget.append(
         `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
@@ -84,7 +96,7 @@ $(function () {
   let clickTeacherImg = () => {
     $('.teacher-condition img').on('click', event => {
       let thisBtn = $(event.currentTarget)
-      let thisImgTitle = thisBtn.attr('title')
+      let teacherImgTitle = thisBtn.attr('title')
       let otherImgTitle = thisBtn.siblings('[data-clicked=true]').attr('title')
       let chA, chB, chC, chD,
         enA, enB, enC, enD,
@@ -96,56 +108,59 @@ $(function () {
       $('.left-side .left1').css('opacity', '0.4')
       $('.youtube-video iframe').remove()
 
-      if (thisImgTitle === '敬請期待') {
+      if (teacherImgTitle === '敬請期待') {
         leftSideImgTarget.css('opacity', '0.4')
         thisBtn.siblings('[data-clicked=true]').attr('src', `${rootPath}/img/${otherImgTitle}正常.png`)
+        $('.left-side img').hide()
         return false
-      } else if (thisImgTitle === '柳吟國文') {
-        chA = 'https://www.youtube.com/embed/cFbgZS33w_A'
-        chB = 'https://www.youtube.com/embed/7seqN-mlXrM'
-        chC = 'https://www.youtube.com/embed/j5SaFJwGAGE'
-        chD = 'https://www.youtube.com/embed/OL7t4_ZFLHU'
+      } else if (teacherImgTitle === '柳吟國文') {
+        chA = 'https://www.youtube.com/embed/'
+        chB = 'https://www.youtube.com/embed/'
+        chC = 'https://www.youtube.com/embed/'
+        chD = 'https://www.youtube.com/embed/'
 
         videoTarget.append(
           `<iframe class="ch" width=${widthStyle} height=${heightStyle} src=${chA}></iframe>`
         )
         changeVideo(chA, chB, chC, chD)
-      } else if (thisImgTitle === '東方智英文') {
-        enA = 'https://www.youtube.com/embed/_kqZYBGiOc4'
-        enB = 'https://www.youtube.com/embed/r0haWB1Uezk'
-        enC = 'https://www.youtube.com/embed/rbhm6UFuGIM'
-        enD = 'https://www.youtube.com/embed/3hzX-BWfark'
+      } else if (teacherImgTitle === '東方智英文') {
+        enA = 'https://www.youtube.com/embed/SqkoYOueFsU'
+        enB = 'https://www.youtube.com/embed/7RtCbGPrGSA'
+        enC = 'https://www.youtube.com/embed/2BTlYPBZ8M8'
+        enD = 'https://www.youtube.com/embed/X5k5tkBwgCE'
 
+        $('.left-side img').show()
         videoTarget.append(
           `<iframe class="en" width=${widthStyle} height=${heightStyle} src=${enA}></iframe>`
         )
         changeVideo(enA, enB, enC, enD)
-      } else if (thisImgTitle === '楊明山數學') {
-        maA = 'https://www.youtube.com/embed/9m02FHN8c-k'
-        maB = 'https://www.youtube.com/embed/SKoJRc_NlUw'
-        maC = 'https://www.youtube.com/embed/8v_yDZ7E_PA'
-        maD = 'https://www.youtube.com/embed/4KUkaMeg_aI'
+      } else if (teacherImgTitle === '楊明山數學') {
+        maA = 'https://www.youtube.com/embed/'
+        maB = 'https://www.youtube.com/embed/'
+        maC = 'https://www.youtube.com/embed/'
+        maD = 'https://www.youtube.com/embed/'
 
         videoTarget.append(
           `<iframe class="ma" width=${widthStyle} height=${heightStyle} src=${maA}></iframe>`
         )
         changeVideo(maA, maB, maC, maD)
-      } else if (thisImgTitle === '紀揚理化') {
-        pcA = 'https://www.youtube.com/embed/ig8KSgTqnb8'
-        pcB = 'https://www.youtube.com/embed/c_J08o4hJ88'
-        pcC = 'https://www.youtube.com/embed/bEceCiqRJOk'
-        pcD = 'https://www.youtube.com/embed/3FiH9K9F2U0'
+      } else if (teacherImgTitle === '紀揚理化') {
+        pcA = 'https://www.youtube.com/embed/'
+        pcB = 'https://www.youtube.com/embed/'
+        pcC = 'https://www.youtube.com/embed/'
+        pcD = 'https://www.youtube.com/embed/'
 
         videoTarget.append(
           `<iframe class="pc" width=${widthStyle} height=${heightStyle} src=${pcA}></iframe>`
         )
         changeVideo(pcA, pcB, pcC, pcD)
-      } else if (thisImgTitle === '李天豪社會') {
-        soA = 'https://www.youtube.com/embed/VMujFZ2kuQk'
-        soB = 'https://www.youtube.com/embed/wjsk1wHM1vg'
-        soC = 'https://www.youtube.com/embed/aaCgzRFno1U'
-        soD = 'https://www.youtube.com/embed/IPkwT6GADWQ'
+      } else if (teacherImgTitle === '李天豪社會') {
+        soA = 'https://www.youtube.com/embed/fWWITYky4j0'
+        soB = 'https://www.youtube.com/embed/BpEUEMq8IHc'
+        soC = 'https://www.youtube.com/embed/z7Ce90S8eyQ'
+        soD = 'https://www.youtube.com/embed/Go55OciG1Qc'
 
+        $('.left-side img').show()
         videoTarget.append(
           `<iframe class="so" width=${widthStyle} height=${heightStyle} src=${soA}></iframe>`
         )
@@ -153,7 +168,7 @@ $(function () {
       }
 
       thisBtn.attr('data-clicked', true)
-      thisBtn.attr('src', `${rootPath}/img/${thisImgTitle}點選.png`)
+      thisBtn.attr('src', `${rootPath}/img/${teacherImgTitle}點選.png`)
       thisBtn.siblings('[data-clicked=true]').attr('src', `${rootPath}/img/${otherImgTitle}正常.png`)
       thisBtn.siblings('[data-clicked=true]').removeAttr('data-clicked')
 
