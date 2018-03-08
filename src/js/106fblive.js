@@ -47,18 +47,6 @@ $(function () {
         `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
       )
     }
-
-    // 暫時使用
-    // if (true) {
-    //   $('.container .teacher-condition .en').remove()
-    //   $('.container .teacher-condition .so').remove()
-    //   subjectTarget.append(
-    //     `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
-    //   )
-    //   subjectTarget.append(
-    //     `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
-    //   )
-    // }
   }
 
   let changeVideo = (youtubeUrlA, youtubeUrlB, youtubeUrlC, youtubeUrlD) => {
