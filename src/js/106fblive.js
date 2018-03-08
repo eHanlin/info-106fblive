@@ -19,14 +19,14 @@ $(function () {
         <img class="so" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/李天豪社會敬請期待.png">`
     )
     // nowSeconds >= date0309
-    if (false) {
+    if (true) {
       $('.container .teacher-condition .ch').remove()
       subjectTarget.append(
         `<img class="ch" title="柳吟國文" src="${rootPath}/img/柳吟國文正常.png">`
       )
     }
     // nowSeconds >= date0316
-    if (false) {
+    if (true) {
       $('.container .teacher-condition .en').remove()
       $('.container .teacher-condition .ma').remove()
       subjectTarget.append(
@@ -37,7 +37,7 @@ $(function () {
       )
     }
     // nowSeconds >= date0323
-    if (false) {
+    if (true) {
       $('.container .teacher-condition .pc').remove()
       $('.container .teacher-condition .so').remove()
       subjectTarget.append(
@@ -49,16 +49,16 @@ $(function () {
     }
 
     // 暫時使用
-    if (true) {
-      $('.container .teacher-condition .en').remove()
-      $('.container .teacher-condition .so').remove()
-      subjectTarget.append(
-        `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
-      )
-      subjectTarget.append(
-        `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
-      )
-    }
+    // if (true) {
+    //   $('.container .teacher-condition .en').remove()
+    //   $('.container .teacher-condition .so').remove()
+    //   subjectTarget.append(
+    //     `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
+    //   )
+    //   subjectTarget.append(
+    //     `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
+    //   )
+    // }
   }
 
   let changeVideo = (youtubeUrlA, youtubeUrlB, youtubeUrlC, youtubeUrlD) => {
@@ -114,10 +114,10 @@ $(function () {
         $('.left-side img').hide()
         return false
       } else if (teacherImgTitle === '柳吟國文') {
-        chA = 'https://www.youtube.com/embed/'
-        chB = 'https://www.youtube.com/embed/'
-        chC = 'https://www.youtube.com/embed/'
-        chD = 'https://www.youtube.com/embed/'
+        chA = 'https://www.youtube.com/embed/-DRq12BK2eM'
+        chB = 'https://www.youtube.com/embed/sa5gf7fzNHg'
+        chC = 'https://www.youtube.com/embed/L1PT97XoeOg'
+        chD = 'https://www.youtube.com/embed/XDh-5Z-zVBY'
 
         videoTarget.append(
           `<iframe class="ch" width=${widthStyle} height=${heightStyle} src=${chA}></iframe>`
@@ -135,20 +135,20 @@ $(function () {
         )
         changeVideo(enA, enB, enC, enD)
       } else if (teacherImgTitle === '楊明山數學') {
-        maA = 'https://www.youtube.com/embed/'
-        maB = 'https://www.youtube.com/embed/'
-        maC = 'https://www.youtube.com/embed/'
-        maD = 'https://www.youtube.com/embed/'
+        maA = 'https://www.youtube.com/embed/k7tf2CtMuc8'
+        maB = 'https://www.youtube.com/embed/qLjNp1AqTLU'
+        maC = 'https://www.youtube.com/embed/cPlqMux310k'
+        maD = 'https://www.youtube.com/embed/6X4zOFBLk-s'
 
         videoTarget.append(
           `<iframe class="ma" width=${widthStyle} height=${heightStyle} src=${maA}></iframe>`
         )
         changeVideo(maA, maB, maC, maD)
       } else if (teacherImgTitle === '紀揚理化') {
-        pcA = 'https://www.youtube.com/embed/'
-        pcB = 'https://www.youtube.com/embed/'
-        pcC = 'https://www.youtube.com/embed/'
-        pcD = 'https://www.youtube.com/embed/'
+        pcA = 'https://www.youtube.com/embed/r6IWQt_Nzm4'
+        pcB = 'https://www.youtube.com/embed/6NUJjWIFTFc'
+        pcC = 'https://www.youtube.com/embed/l9Y5YfK89x0'
+        pcD = 'https://www.youtube.com/embed/2rwrdu1e5vQ'
 
         videoTarget.append(
           `<iframe class="pc" width=${widthStyle} height=${heightStyle} src=${pcA}></iframe>`
