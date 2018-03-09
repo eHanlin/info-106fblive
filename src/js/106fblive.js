@@ -184,7 +184,7 @@ $(function () {
   }
 
   $(document).ready(() => {
-    $('.teacher-condition .en').trigger('click')
+    $('.teacher-condition .ch').trigger('click')
   })
 
   $('.share .fb-share').on('click', event => {
