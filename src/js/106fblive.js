@@ -12,17 +12,23 @@ $(function () {
   let heightStyle = '345'
   let normal = () => {
     subjectTarget.append(
-            `<img class="ch" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/柳吟國文敬請期待.png">
+      `<img class="ch" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/柳吟國文敬請期待.png">
         <img class="en" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/東方智英文敬請期待.png">
         <img class="ma" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/楊明山數學敬請期待.png">
         <img class="pc" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/紀揚理化敬請期待.png">
         <img class="so" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/李天豪社會敬請期待.png">`
     )
+
+    if (window.location.protocol != 'https:') {
+      console.log('1')
+      window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length)
+    }
+
     // nowSeconds >= date0309
     if (true) {
       $('.container .teacher-condition .ch').remove()
       subjectTarget.append(
-              `<img class="ch" title="柳吟國文" src="${rootPath}/img/柳吟國文正常.png">`
+        `<img class="ch" title="柳吟國文" src="${rootPath}/img/柳吟國文正常.png">`
       )
     }
     // nowSeconds >= date0316
@@ -30,10 +36,10 @@ $(function () {
       $('.container .teacher-condition .en').remove()
       $('.container .teacher-condition .ma').remove()
       subjectTarget.append(
-              `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
+        `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
       )
       subjectTarget.append(
-              `<img class="ma" title="楊明山數學" src="${rootPath}/img/楊明山數學正常.png">`
+        `<img class="ma" title="楊明山數學" src="${rootPath}/img/楊明山數學正常.png">`
       )
     }
     // nowSeconds >= date0323
@@ -41,10 +47,10 @@ $(function () {
       $('.container .teacher-condition .pc').remove()
       $('.container .teacher-condition .so').remove()
       subjectTarget.append(
-              `<img class="pc" title="紀揚理化" src="${rootPath}/img/紀揚理化正常.png">`
+        `<img class="pc" title="紀揚理化" src="${rootPath}/img/紀揚理化正常.png">`
       )
       subjectTarget.append(
-              `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
+        `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
       )
     }
   }
@@ -60,22 +66,22 @@ $(function () {
       if (thisImgTitle === '爆中考點') {
         $('.left-side .left1').css('opacity', '0.4')
         videoTarget.append(
-                `<iframe width=${widthStyle} height=${heightStyle} src=${youtubeUrlA}></iframe>`
+          `<iframe width=${widthStyle} height=${heightStyle} src=${youtubeUrlA}></iframe>`
         )
       } else if (thisImgTitle === '進階B') {
         $('.left-side .left2').css('opacity', '0.4')
         videoTarget.append(
-                `<iframe width=${widthStyle} height=${heightStyle} src=${youtubeUrlB}></iframe>`
+          `<iframe width=${widthStyle} height=${heightStyle} src=${youtubeUrlB}></iframe>`
         )
       } else if (thisImgTitle === '躍升A') {
         $('.left-side .left3').css('opacity', '0.4')
         videoTarget.append(
-                `<iframe width=${widthStyle} height=${heightStyle} src=${youtubeUrlC}></iframe>`
+          `<iframe width=${widthStyle} height=${heightStyle} src=${youtubeUrlC}></iframe>`
         )
       } else if (thisImgTitle === '衝刺A') {
         $('.left-side .left4').css('opacity', '0.4')
         videoTarget.append(
-                `<iframe width=${widthStyle} height=${heightStyle} src=${youtubeUrlD}></iframe>`
+          `<iframe width=${widthStyle} height=${heightStyle} src=${youtubeUrlD}></iframe>`
         )
       }
     })
@@ -108,7 +114,7 @@ $(function () {
         chD = 'https://www.youtube.com/embed/XDh-5Z-zVBY'
 
         videoTarget.append(
-                `<iframe class="ch" width=${widthStyle} height=${heightStyle} src=${chA}></iframe>`
+          `<iframe class="ch" width=${widthStyle} height=${heightStyle} src=${chA}></iframe>`
         )
         changeVideo(chA, chB, chC, chD)
       } else if (teacherImgTitle === '東方智英文') {
@@ -119,7 +125,7 @@ $(function () {
 
         $('.left-side img').show()
         videoTarget.append(
-                `<iframe class="en" width=${widthStyle} height=${heightStyle} src=${enA}></iframe>`
+          `<iframe class="en" width=${widthStyle} height=${heightStyle} src=${enA}></iframe>`
         )
         changeVideo(enA, enB, enC, enD)
       } else if (teacherImgTitle === '楊明山數學') {
@@ -129,7 +135,7 @@ $(function () {
         maD = 'https://www.youtube.com/embed/6X4zOFBLk-s'
 
         videoTarget.append(
-                `<iframe class="ma" width=${widthStyle} height=${heightStyle} src=${maA}></iframe>`
+          `<iframe class="ma" width=${widthStyle} height=${heightStyle} src=${maA}></iframe>`
         )
         changeVideo(maA, maB, maC, maD)
       } else if (teacherImgTitle === '紀揚理化') {
@@ -139,7 +145,7 @@ $(function () {
         pcD = 'https://www.youtube.com/embed/2rwrdu1e5vQ'
 
         videoTarget.append(
-                `<iframe class="pc" width=${widthStyle} height=${heightStyle} src=${pcA}></iframe>`
+          `<iframe class="pc" width=${widthStyle} height=${heightStyle} src=${pcA}></iframe>`
         )
         changeVideo(pcA, pcB, pcC, pcD)
       } else if (teacherImgTitle === '李天豪社會') {
@@ -150,7 +156,7 @@ $(function () {
 
         $('.left-side img').show()
         videoTarget.append(
-                `<iframe class="so" width=${widthStyle} height=${heightStyle} src=${soA}></iframe>`
+          `<iframe class="so" width=${widthStyle} height=${heightStyle} src=${soA}></iframe>`
         )
         changeVideo(soA, soB, soC, soD)
       }
