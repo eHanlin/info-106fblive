@@ -19,14 +19,19 @@ $(function () {
         <img class="so" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/李天豪社會敬請期待.png">`
     )
 
-    // nowSeconds >= date0309
+    /* 判斷當前協議是http還是https */
+    if (window.location.protocol != 'https:') {
+      window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length)
+    }
+
+    /* nowSeconds >= date0309 */
     if (true) {
       $('.container .teacher-condition .ch').remove()
       subjectTarget.append(
         `<img class="ch" title="柳吟國文" src="${rootPath}/img/柳吟國文正常.png">`
       )
     }
-    // nowSeconds >= date0316
+    /* nowSeconds >= date0316 */
     if (true) {
       $('.container .teacher-condition .en').remove()
       $('.container .teacher-condition .ma').remove()
@@ -37,7 +42,7 @@ $(function () {
         `<img class="ma" title="楊明山數學" src="${rootPath}/img/楊明山數學正常.png">`
       )
     }
-    // nowSeconds >= date0323
+    /* nowSeconds >= date0323 */
     if (true) {
       $('.container .teacher-condition .pc').remove()
       $('.container .teacher-condition .so').remove()
