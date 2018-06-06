@@ -19,11 +19,6 @@ $(function () {
         <img class="so" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/李天豪社會敬請期待.png">`
     )
 
-    if (window.location.protocol != 'https:') {
-      console.log('1')
-      window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length)
-    }
-
     // nowSeconds >= date0309
     if (true) {
       $('.container .teacher-condition .ch').remove()
