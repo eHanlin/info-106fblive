@@ -1,4 +1,4 @@
-define(['jquery', 'jqueryBlockUI'], ($, jqueryBlockUI) => { // eslint-disable-line
+define(['jquery', 'jqueryBlockUI'], ($, jqueryBlockUI) => {
   let rootPath = document.getElementById('rootPath').getAttribute('data-value')
   // let rootPath = '.'
   // let nowSeconds = new Date().getTime() / 1000
