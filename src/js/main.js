@@ -6,7 +6,9 @@ require.config({
     fblive: ['./106fblive'],
 
           /* third party */
-    jquery: ['./lib/jquery-3.3.1.min']
+    jquery: ['./lib/jquery-3.3.1.min'],
+    jqueryBlockUI: ['./lib/jquery.blockUI']
+
   },
   map: {
     '*': {
