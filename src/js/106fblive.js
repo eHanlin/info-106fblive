@@ -1,10 +1,10 @@
-$(function () {
+define(['jquery'], $ => { // eslint-disable-line
   let rootPath = document.getElementById('rootPath').getAttribute('data-value')
   // let rootPath = '.'
-  let nowSeconds = new Date().getTime() / 1000
-  let date0309 = 1520568000
-  let date0316 = 1521172800
-  let date0323 = 1521777600
+  // let nowSeconds = new Date().getTime() / 1000
+  // let date0309 = 1520568000
+  // let date0316 = 1521172800
+  // let date0323 = 1521777600
   let subjectTarget = $('.container .teacher-condition')
   let leftSideImgTarget = $('.left-side img')
   let videoTarget = $('.youtube-video')
@@ -13,10 +13,10 @@ $(function () {
   let normal = () => {
     subjectTarget.append(
       `<img class="ch" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/柳吟國文敬請期待.png">
-        <img class="en" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/東方智英文敬請期待.png">
-        <img class="ma" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/楊明山數學敬請期待.png">
-        <img class="pc" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/紀揚理化敬請期待.png">
-        <img class="so" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/李天豪社會敬請期待.png">`
+          <img class="en" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/東方智英文敬請期待.png">
+          <img class="ma" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/楊明山數學敬請期待.png">
+          <img class="pc" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/紀揚理化敬請期待.png">
+          <img class="so" title="敬請期待" style="opacity:0.6;" src="${rootPath}/img/李天豪社會敬請期待.png">`
     )
 
     /* 判斷當前協議是http還是https */
@@ -25,34 +25,34 @@ $(function () {
     }
 
     /* nowSeconds >= date0309 */
-    if (true) {
-      $('.container .teacher-condition .ch').remove()
-      subjectTarget.append(
-        `<img class="ch" title="柳吟國文" src="${rootPath}/img/柳吟國文正常.png">`
-      )
-    }
+    // if (true) {
+    $('.container .teacher-condition .ch').remove()
+    subjectTarget.append(
+      `<img class="ch" title="柳吟國文" src="${rootPath}/img/柳吟國文正常.png">`
+    )
+    // }
     /* nowSeconds >= date0316 */
-    if (true) {
-      $('.container .teacher-condition .en').remove()
-      $('.container .teacher-condition .ma').remove()
-      subjectTarget.append(
-        `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
-      )
-      subjectTarget.append(
-        `<img class="ma" title="楊明山數學" src="${rootPath}/img/楊明山數學正常.png">`
-      )
-    }
+    // if (true) {
+    $('.container .teacher-condition .en').remove()
+    $('.container .teacher-condition .ma').remove()
+    subjectTarget.append(
+      `<img class="en" title="東方智英文" src="${rootPath}/img/東方智英文正常.png">`
+    )
+    subjectTarget.append(
+      `<img class="ma" title="楊明山數學" src="${rootPath}/img/楊明山數學正常.png">`
+    )
+    // }
     /* nowSeconds >= date0323 */
-    if (true) {
-      $('.container .teacher-condition .pc').remove()
-      $('.container .teacher-condition .so').remove()
-      subjectTarget.append(
-        `<img class="pc" title="紀揚理化" src="${rootPath}/img/紀揚理化正常.png">`
-      )
-      subjectTarget.append(
-        `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
-      )
-    }
+    // if (true) {
+    $('.container .teacher-condition .pc').remove()
+    $('.container .teacher-condition .so').remove()
+    subjectTarget.append(
+      `<img class="pc" title="紀揚理化" src="${rootPath}/img/紀揚理化正常.png">`
+    )
+    subjectTarget.append(
+      `<img class="so" title="李天豪社會" src="${rootPath}/img/李天豪社會正常.png">`
+    )
+    // }
   }
 
   let changeVideo = (youtubeUrlA, youtubeUrlB, youtubeUrlC, youtubeUrlD) => {
