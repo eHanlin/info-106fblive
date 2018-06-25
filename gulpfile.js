@@ -2,20 +2,18 @@ const Q = require('q')
 const del = require('del')
 const gulp = require('gulp')
 const babel = require('gulp-babel')
+const cache = require('gulp-cache')
 const uglify = require('gulp-uglify-es').default
+const imageMin = require('gulp-imagemin')
 const gcPub = require('gulp-gcloud-publish')
-const Storage = require('@google-cloud/storage')
+const pngquant = require('imagemin-pngquant')
 const templateUtil = require('gulp-template-util')
 
-let bucketName = 'tutor-events'
+let bucketNameForTest = 'tutor-events-test'
+let bucketNameForProd = 'tutor-events'
 let projectId = 'tutor-204108'
-let keyFilename = './tutor.json'
-let projectName = '106fblive'
-
-const storage = new Storage({
-  projectId: projectId,
-  keyFilename: keyFilename
-})
+let keyFilename = 'tutor.json'
+let projectName = 'event/info-106fblive/'
 
 const basePath = {
   base: 'src'
@@ -53,7 +51,7 @@ let minifyJs = sourceJS => {
           console.log(error)
         })
       )
-      .pipe(gulp.dest(dist))
+      .pipe(gulp.dest('./dist'))
   }
 }
 
@@ -69,61 +67,67 @@ let babelJS = sourceJS => {
 let buildJS = () => {
   let deferred = Q.defer()
 
-  Q.fcall(function () {
+  Q.fcall(() => {
     return templateUtil.logStream(babelJS(['src/js/*.js']))
   })
-    .then(function () {
+    .then(() => {
       return templateUtil.logStream(minifyJs('babel-temp/js/**/*.js'))
     })
-    .then(function () {
+    .then(() => {
       return templateUtil.logPromise(clean('babel-temp'))
     })
   return deferred.promise
 }
 
-let removeEmptyFiles = () => {
-  let array = ['img', 'css', 'js', 'lib']
-  array.forEach(emptyFiles => {
-    storage
-      .bucket(bucketName)
-      .file(`/event/${projectName}/${emptyFiles}`)
-      .delete()
-      .then(() => {
-        console.log(`gs://${bucketName}/${emptyFiles} deleted.`)
-      })
-      .catch(err => {
-        console.error('ERROR:', err)
-      })
-  })
+let minifyImage = sourceImage => {
+  return gulp
+    .src(sourceImage, {
+      base: './src'
+    })
+    .pipe(cache(imageMin({
+      use: [pngquant({
+        speed: 7
+      })]
+    })))
+    .pipe(gulp.dest('./dist'))
 }
 
-gulp.task('uploadGcp', () => {
-  return gulp.src(['dist/**/*'])
+let uploadGCS = bucketName => {
+  return gulp
+    .src([
+      './dist/*.html',
+      './dist/css/**/*.css',
+      './dist/js/**/*.js',
+      './dist/lib/**/*.@(js|json)',
+      './dist/img/**/*.png'
+    ], {
+      base: `${__dirname}/dist/`
+    })
     .pipe(gcPub({
       bucket: bucketName,
       keyFilename: keyFilename,
+      base: projectName,
       projectId: projectId,
-      base: `/event/${projectName}`,
       public: true,
-      transformDestination: path => {
-        return path
-      },
       metadata: {
-        cacheControl: 'max-age=315360000, no-transform, public'
+        cacheControl: 'private, no-transform'
       }
     }))
-})
+}
 
-gulp.task('removeEmptyFiles', () => {
-  removeEmptyFiles()
-})
-
+gulp.task('uploadGcpTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
+gulp.task('uploadGcpProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
 gulp.task('minifyJs', minifyJs('src/js/**/*.js'))
 gulp.task('package', () => {
   let deferred = Q.defer()
   Q.fcall(() => {
     return templateUtil.logPromise(clean(dist))
   })
+    .then(() => {
+      return Q.all([
+        templateUtil.logStream(minifyImage.bind(minifyImage, './src/img/**/*.png'))
+      ])
+    })
     .then(() => {
       return templateUtil.logStream(copyStaticTask('dist'))
     })
