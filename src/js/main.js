@@ -7,7 +7,7 @@ require.config({
 
           /* third party */
     jquery: ['./lib/jquery-3.3.1.min'],
-    jqueryBlockUI: ['./lib/jquery.blockUI']
+    jqueryBlockUI: ['../lib/block-ui/jquery.blockUI']
 
   },
   map: {

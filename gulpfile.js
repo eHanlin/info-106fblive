@@ -13,7 +13,7 @@ let bucketNameForTest = 'tutor-events-test'
 let bucketNameForProd = 'tutor-events'
 let projectId = 'tutor-204108'
 let keyFilename = 'tutor.json'
-let projectName = 'event/info-106fblive/'
+let projectName = 'event/106fblive/'
 
 const basePath = {
   base: 'src'
@@ -117,7 +117,6 @@ let uploadGCS = bucketName => {
 
 gulp.task('uploadGcpTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
 gulp.task('uploadGcpProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
-gulp.task('minifyJs', minifyJs('src/js/**/*.js'))
 gulp.task('package', () => {
   let deferred = Q.defer()
   Q.fcall(() => {
