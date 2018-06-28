@@ -1,5 +1,6 @@
 define(['jquery', 'jqueryBlockUI'], ($, jqueryBlockUI) => {
-  let rootPath = document.getElementById('rootPath').getAttribute('data-value')
+  let rootPath = `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/info-106fblive`
+  let youtubeUrl = `https://www.youtube.com/embed/`
   // let rootPath = '.'
   // let nowSeconds = new Date().getTime() / 1000
   // let date0309 = 1520568000
@@ -108,20 +109,20 @@ define(['jquery', 'jqueryBlockUI'], ($, jqueryBlockUI) => {
         $('.left-side img').hide()
         return false
       } else if (teacherImgTitle === '柳吟國文') {
-        chA = 'https://www.youtube.com/embed/-DRq12BK2eM'
-        chB = 'https://www.youtube.com/embed/sa5gf7fzNHg'
-        chC = 'https://www.youtube.com/embed/L1PT97XoeOg'
-        chD = 'https://www.youtube.com/embed/XDh-5Z-zVBY'
+        chA = `${youtubeUrl}-DRq12BK2eM`
+        chB = `${youtubeUrl}sa5gf7fzNHg`
+        chC = `${youtubeUrl}L1PT97XoeOg`
+        chD = `${youtubeUrl}XDh-5Z-zVBY`
 
         videoTarget.append(
           `<iframe class="ch" width=${widthStyle} height=${heightStyle} src=${chA}></iframe>`
         )
         changeVideo(chA, chB, chC, chD)
       } else if (teacherImgTitle === '東方智英文') {
-        enA = 'https://www.youtube.com/embed/SqkoYOueFsU'
-        enB = 'https://www.youtube.com/embed/7RtCbGPrGSA'
-        enC = 'https://www.youtube.com/embed/2BTlYPBZ8M8'
-        enD = 'https://www.youtube.com/embed/X5k5tkBwgCE'
+        enA = `${youtubeUrl}SqkoYOueFsU`
+        enB = `${youtubeUrl}7RtCbGPrGSA`
+        enC = `${youtubeUrl}2BTlYPBZ8M8`
+        enD = `${youtubeUrl}X5k5tkBwgCE`
 
         $('.left-side img').show()
         videoTarget.append(
@@ -129,30 +130,30 @@ define(['jquery', 'jqueryBlockUI'], ($, jqueryBlockUI) => {
         )
         changeVideo(enA, enB, enC, enD)
       } else if (teacherImgTitle === '楊明山數學') {
-        maA = 'https://www.youtube.com/embed/k7tf2CtMuc8'
-        maB = 'https://www.youtube.com/embed/qLjNp1AqTLU'
-        maC = 'https://www.youtube.com/embed/cPlqMux310k'
-        maD = 'https://www.youtube.com/embed/6X4zOFBLk-s'
+        maA = `${youtubeUrl}k7tf2CtMuc8`
+        maB = `${youtubeUrl}qLjNp1AqTLU`
+        maC = `${youtubeUrl}cPlqMux310k`
+        maD = `${youtubeUrl}6X4zOFBLk-s`
 
         videoTarget.append(
           `<iframe class="ma" width=${widthStyle} height=${heightStyle} src=${maA}></iframe>`
         )
         changeVideo(maA, maB, maC, maD)
       } else if (teacherImgTitle === '紀揚理化') {
-        pcA = 'https://www.youtube.com/embed/r6IWQt_Nzm4'
-        pcB = 'https://www.youtube.com/embed/6NUJjWIFTFc'
-        pcC = 'https://www.youtube.com/embed/l9Y5YfK89x0'
-        pcD = 'https://www.youtube.com/embed/2rwrdu1e5vQ'
+        pcA = `${youtubeUrl}r6IWQt_Nzm4`
+        pcB = `${youtubeUrl}6NUJjWIFTFc`
+        pcC = `${youtubeUrl}l9Y5YfK89x0`
+        pcD = `${youtubeUrl}2rwrdu1e5vQ`
 
         videoTarget.append(
           `<iframe class="pc" width=${widthStyle} height=${heightStyle} src=${pcA}></iframe>`
         )
         changeVideo(pcA, pcB, pcC, pcD)
       } else if (teacherImgTitle === '李天豪社會') {
-        soA = 'https://www.youtube.com/embed/fWWITYky4j0'
-        soB = 'https://www.youtube.com/embed/BpEUEMq8IHc'
-        soC = 'https://www.youtube.com/embed/z7Ce90S8eyQ'
-        soD = 'https://www.youtube.com/embed/Go55OciG1Qc'
+        soA = `${youtubeUrl}fWWITYky4j0`
+        soB = `${youtubeUrl}BpEUEMq8IHc`
+        soC = `${youtubeUrl}z7Ce90S8eyQ`
+        soD = `${youtubeUrl}Go55OciG1Qc`
 
         $('.left-side img').show()
         videoTarget.append(
