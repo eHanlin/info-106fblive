@@ -1,1 +1,1 @@
-"use strict";require.config({shim:{},paths:{fblive:["./106fblive"],jquery:["./lib/jquery-3.3.1.min"],jqueryBlockUI:["../lib/block-ui/jquery.blockUI"]},map:{"*":{jQuery:"jquery"}}}),require(["jquery"],function(){require(["fblive"])});
+"use strict";require.config({shim:{},paths:{fblive:["./106fblive"],jquery:["./lib/jquery-3.3.1.min"],lodash:["./lib/lodash"],jqueryBlockUI:["../lib/block-ui/jquery.blockUI"]},map:{"*":{jQuery:"jquery"}}}),require(["jquery"],function(){require(["fblive"])});

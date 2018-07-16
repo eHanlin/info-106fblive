@@ -1,4 +1,4 @@
-define(['jquery', 'jqueryBlockUI'], ($, jqueryBlockUI) => {
+define(['jquery', 'jqueryBlockUI', 'lodash'], ($, jqueryBlockUI, _) => {
   let s3Path = `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/info-106fblive/img/`
   let youtubeUrl = `https://www.youtube.com/embed/`
   let subjectTarget = $('.container .teacher-condition')
@@ -16,7 +16,7 @@ define(['jquery', 'jqueryBlockUI'], ($, jqueryBlockUI) => {
     }
 
     $('.container .teacher-condition img').remove()
-    for (let index = 0; index < titleArray.length; index++) {
+    for (let index = 0; index < _.size(titleArray); index++) {
       subjectTarget.append(
         `<img class=${subArray[index]} title=${titleArray[index]} src="${s3Path}${titleArray[index]}正常.png">`
       )
